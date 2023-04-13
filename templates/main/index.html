@@ -1,0 +1,54 @@
+{% extends "./layout.html" %}
+{% load static %}
+{% block content %}
+    <!-- home section starts  -->
+
+        <div class="intro">
+            <div class="overlay">
+                <div class="context">
+                    <h1>A World of Enchantment</h1>
+                    <p>From Our Table to Yours</p>
+                    <a>Order Now</a>
+
+                </div>
+            </div>
+          </div>
+
+    <!-- home section ends -->
+
+    <!-- dishes section starts  -->
+
+    <section class="dishes" id="dishes">
+
+        <h3 class="sub-heading"> our dishes </h3>
+        <h1 class="heading"> popular dishes </h1>
+
+        <div class="box-container">
+            {% for i in food%}
+
+
+
+            <div class="box">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <img src="{{i.image.url}}" alt="">
+                <h3>{{i.name}}</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span>${{i.price}}</span>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+            {%endfor%}
+
+
+        </div>
+
+    </section>
+
+    <!-- dishes section ends -->
+{% endblock %}

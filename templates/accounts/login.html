@@ -1,0 +1,57 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block content %}
+
+<section class="home" id="home">
+
+    <div class="container1">
+        <div class="signin-signup">          
+            <form action="{% url 'login'%}" class="sign-in-form" method="post">
+                {% csrf_token %}
+                <h2 class="title">sgin in</h2>
+                {% if messages %}
+                {% for message in messages %}
+                 <div class="message {{message.tags}}">
+                    {{message}}
+                 </div>
+                 {% endfor %}
+                 {% endif %}
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    {{form.username}}
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <input type="submit" value="Log in" class="btn2">
+                <p class="social">Or sign in with social platform</p>
+                <div class="social-media">
+                    <a href="" class="social-icon">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="" class="social-icon">
+                        <i class="fab fa-google"></i>
+                    </a>
+
+                </div>
+                <p class="account-text">Dont have an account? <a href="{% url 'signup'%}" id="sign-up-btn2">Sign up</a></p>
+
+            </form>
+            
+            
+
+
+        </div>     
+    </div>
+   
+    
+</section>
+
+{% endblock content %}
